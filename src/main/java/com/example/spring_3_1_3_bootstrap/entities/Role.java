@@ -1,4 +1,4 @@
-package com.spring.security.pp_3_1_2_v2.entities;
+package com.example.spring_3_1_3_bootstrap.entities;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
-package com.spring.security.pp_3_1_2_v2.services;
+package com.example.spring_3_1_3_bootstrap.services;
 
-import com.spring.security.pp_3_1_2_v2.entities.Role;
-import com.spring.security.pp_3_1_2_v2.repositories.RoleRepository;
+import com.example.spring_3_1_3_bootstrap.entities.Role;
+import com.example.spring_3_1_3_bootstrap.repositories.RoleRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +17,12 @@ public class RoleServiceImp implements RoleService {
         this.roleRepository = roleRepository;
     }
 
+    @Transactional
+    public void addRole(Role role) {
+        roleRepository.save(role);
+    }
+
+    @Transactional
     public Set<Role> allRoles() {
         return new HashSet<>(roleRepository.findAll());
     }
@@ -33,5 +39,8 @@ public class RoleServiceImp implements RoleService {
         return roleRepository.getRolesById(id);
     }
 
-
+    @Override
+    public Role getRole(String name) {
+        return roleRepository.findByName(name);
+    }
 }

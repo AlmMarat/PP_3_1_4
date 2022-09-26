@@ -1,6 +1,6 @@
-package com.spring.security.pp_3_1_2_v2.repositories;
+package com.example.spring_3_1_3_bootstrap.repositories;
 
-import com.spring.security.pp_3_1_2_v2.entities.User;
+import com.example.spring_3_1_3_bootstrap.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

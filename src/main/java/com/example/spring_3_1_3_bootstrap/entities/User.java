@@ -1,7 +1,9 @@
-package com.spring.security.pp_3_1_2_v2.entities;
+package com.example.spring_3_1_3_bootstrap.entities;
 
 import lombok.Data;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,12 +32,13 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
+    @Fetch(FetchMode.JOIN)
     private Set<Role> roles = new HashSet<>();
 
     public User() {
@@ -73,7 +76,7 @@ public class User implements UserDetails {
     }
 
     public void addRole(Role role) {
-        this.getRoles().add(role);
+        roles.add(role);
     }
 
     @Override

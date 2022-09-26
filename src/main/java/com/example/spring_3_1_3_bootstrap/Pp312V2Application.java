@@ -1,4 +1,4 @@
-package com.spring.security.pp_3_1_2_v2;
+package com.example.spring_3_1_3_bootstrap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

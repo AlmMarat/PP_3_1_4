@@ -1,9 +1,9 @@
-package com.spring.security.pp_3_1_2_v2;
+package com.example.spring_3_1_3_bootstrap;
 
-import com.spring.security.pp_3_1_2_v2.entities.Role;
-import com.spring.security.pp_3_1_2_v2.entities.User;
-import com.spring.security.pp_3_1_2_v2.services.RoleService;
-import com.spring.security.pp_3_1_2_v2.services.UserService;
+import com.example.spring_3_1_3_bootstrap.entities.Role;
+import com.example.spring_3_1_3_bootstrap.entities.User;
+import com.example.spring_3_1_3_bootstrap.services.RoleService;
+import com.example.spring_3_1_3_bootstrap.services.UserService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -28,7 +28,7 @@ public class UsersInit {
         roleService.save(admin);
 
         User user1 = new User("oleg", "111");//$2a$12$54rDWKSismZ9uGff8bWwvetMn/YqhjzHl0P3D7JxY8GSyXeI2zM9e
-        User user2 = new User("inna","111");//111//$2a$12$54rDWKSismZ9uGff8bWwvetMn/YqhjzHl0P3D7JxY8GSyXeI2zM9e
+        User user2 = new User("inna", "111");//111//$2a$12$54rDWKSismZ9uGff8bWwvetMn/YqhjzHl0P3D7JxY8GSyXeI2zM9e
         User user3 = new User("irina", "111");//$2a$12$54rDWKSismZ9uGff8bWwvetMn/YqhjzHl0P3D7JxY8GSyXeI2zM9e
 
         user1.addRole(roleService.findByName("ROLE_ADMIN"));
@@ -45,7 +45,5 @@ public class UsersInit {
         userService.saveUser(user1);
         userService.saveUser(user2);
         userService.saveUser(user3);
-
     }
-
 }

@@ -1,6 +1,6 @@
-package com.spring.security.pp_3_1_2_v2.services;
+package com.example.spring_3_1_3_bootstrap.services;
 
-import com.spring.security.pp_3_1_2_v2.entities.Role;
+import com.example.spring_3_1_3_bootstrap.entities.Role;
 
 import java.util.Set;
 
@@ -9,4 +9,6 @@ public interface RoleService {
     Role findByName(String name);
     void save(Role role);
     Set<Role> findById(Long[] id);
+    Role getRole(String name);
+    public void addRole(Role role);
 }

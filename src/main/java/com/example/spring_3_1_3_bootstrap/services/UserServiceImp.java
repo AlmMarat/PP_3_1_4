@@ -1,7 +1,7 @@
-package com.spring.security.pp_3_1_2_v2.services;
+package com.example.spring_3_1_3_bootstrap.services;
 
-import com.spring.security.pp_3_1_2_v2.entities.User;
-import com.spring.security.pp_3_1_2_v2.repositories.UserRepository;
+import com.example.spring_3_1_3_bootstrap.entities.User;
+import com.example.spring_3_1_3_bootstrap.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
