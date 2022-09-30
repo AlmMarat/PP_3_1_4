@@ -116,13 +116,18 @@
                                                             <br>
                                                             <div class="form-group text-center">
                                                                 <strong >Role</strong>
-                                                                <select class="form-control" name="roles" multiple size="2" th:required="true">
-                                                                    <div th:each="role : ${roles}">
-                                                                        <option th:text="${role.getName().substring(5)}" th:value="${role.id}" name="roles">
-                                                                        </option>
-                                                                    </div>
-
-                                                                </select>
+                                                                <select name="roles" th:value="${roles}" size="2" multiple required class="form-select mx-auto" aria-label="Default select" style="width: 250px;">
+                                                                    <th:block th:if="${user.roles.size()<2}">
+                                                                        <option value="2" selected th:each="role : ${user.roles}" th:if="${role.name=='ROLE_ADMIN'}">ADMIN</option>
+                                                                        <option value="2" th:each="role : ${user.roles}" th:if="${role.name!='ROLE_ADMIN'}">ADMIN</option>
+                                                                        <option value="1" selected th:each="role : ${user.roles}" th:if="${role.name=='ROLE_USER'}">USER</option>
+                                                                        <option value="1" th:each="role : ${user.roles}" th:if="${role.name!='ROLE_USER'}">USER</option>
+                                                                    </th:block>
+                                                                    <th:block th:if="${user.roles.size()==2}">
+                                                                        <option value="2" selected>ADMIN</option>
+                                                                        <option value="1" selected>USER</option>
+                                                                    </th:block>
+                                                                </select></label>
                                                             </div>
                                                             <br><br>
                                                         </div>
