@@ -8,7 +8,7 @@ public interface RoleService {
     Set<Role> allRoles();
     Role findByName(String name);
     void save(Role role);
-    Set<Role> findById(Long[] id);
+    Role findById(Long id);
     Role getRole(String name);
     public void addRole(Role role);
 }

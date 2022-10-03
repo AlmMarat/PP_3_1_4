@@ -35,8 +35,9 @@ public class RoleServiceImp implements RoleService {
         roleRepository.save(role);
     }
 
-    public Set<Role> findById(Long[] id) {
-        return roleRepository.getRolesById(id);
+    @Override
+    public Role findById(Long id) {
+        return roleRepository.findById(id).orElse(null);
     }
 
     @Override

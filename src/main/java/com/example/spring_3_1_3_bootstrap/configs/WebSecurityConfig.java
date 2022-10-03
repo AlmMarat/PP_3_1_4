@@ -25,16 +25,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable().antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/admin-panel/**").hasRole("ADMIN")
-                .antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
-                .anyRequest().authenticated()
+                .antMatchers("/", "/login/**").permitAll()
+                .antMatchers("/viewUser").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/admin_panel").hasRole("ADMIN")
                 .and()
                 .formLogin().loginPage("/login").permitAll().successHandler(successUserHandler)
                 .and()
                 .logout()
-                .permitAll();
+                .permitAll()
+                .and()
+                .httpBasic();
     }
+
 
     @Bean
     public PasswordEncoder bCryptPasswordEncoder() {
