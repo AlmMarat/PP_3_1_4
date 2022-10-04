@@ -2,7 +2,7 @@ $(async function() {
     await newUser();
 });
 async function newUser() {
-    await fetch("http://localhost:8080/roles")
+    await fetch("http://localhost:8080/api/roles")
         .then(res => res.json())
         .then(roles => {
             roles.forEach(role => {
@@ -26,7 +26,7 @@ async function newUser() {
                 name : form.roles.options[i].name
             })
         }
-        fetch("http://localhost:8080/users", {
+        fetch("http://localhost:8080/api/users", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
